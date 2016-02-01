@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ aem-sling-contrib
+  ~ https://github.com/dherges/aem-sling-contrib
+  ~
+  ~ Copyright (c) 2016 David Herges
+  ~ Licensed under the MIT license.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.spektrakel.sling</groupId>
+        <artifactId>aem-sling-contrib</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+
+    <artifactId>weltraumschaf-speakingurl</artifactId>
+    <packaging>bundle</packaging>
+    <name>Speaking URL</name>
+    <description>Java port of https://github.com/pid/speakingurl</description>
+
+
+    <properties>
+        <de.weltraumschaf.speakingurl.version>1.0.0</de.weltraumschaf.speakingurl.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>de.weltraumschaf</groupId>
+            <artifactId>speakingurl</artifactId>
+            <version>${de.weltraumschaf.speakingurl.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            de.weltraumschaf.speakingurl.*
+                        </Export-Package>
+                        <Import-Package>
+                            !de.weltraumschaf.speakingurl.*
+                        </Import-Package>
+                        <Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>maven-sling-plugin</artifactId>
+                <configuration>
+                    <slingUrl>http://${crx.host}:${crx.port}/apps/system/install</slingUrl>
+                    <usePut>true</usePut>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

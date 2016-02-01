@@ -483,6 +483,7 @@
         <module>bundles/sling-commons-email</module>
         <module>bundles/sling-handlebarsjs</module>
         <module>bundles/square-retrofit-okhttp-okio</module>
+        <module>bundles/weltraumschaf-speakingurl</module>
         <module>content/bootstrap</module>
     </modules>
 </project>
