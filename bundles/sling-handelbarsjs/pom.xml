@@ -27,11 +27,11 @@
 
 
     <properties>
+        <apache.sling.api.version>2.3.0</apache.sling.api.version>
         <apache.commons.lang.version>3.4</apache.commons.lang.version>
         <handlebars.version>4.0.3</handlebars.version>
         <org.apache.servicemix.bundles.rhino.version>1.7.7_1</org.apache.servicemix.bundles.rhino.version>
         <org.antl.antl-runtime.version>4.5.1-1</org.antl.antl-runtime.version>
-        <junit.version>4.12</junit.version>
     </properties>
 
 
