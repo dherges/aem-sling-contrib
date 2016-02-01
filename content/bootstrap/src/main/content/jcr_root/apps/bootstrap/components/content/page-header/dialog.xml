@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Page Header"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <settings
+            jcr:primaryType="cq:Widget"
+            title="Settings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <heading
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="Headline goes here..."
+                    fieldLabel="Title"
+                    name="./title"
+                    xtype="textfield"/>
+                <secondaryText
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Subtitle"
+                    name="./subtitle"
+                    xtype="textfield"/>
+            </items>
+        </settings>
+    </items>
+</jcr:root>

@@ -1,0 +1,13 @@
+<sly data-sly-use.image="image.js" data-sly-unwrap></sly>
+
+<a data-sly-unwrap="${!image.linkUrl}"
+  href="${image.linkUrl}">
+   <img src="${image.src @ context='uri'}"
+     class="${properties.cssShape}"
+     title="${properties.title}"
+     alt="${properties.altText}"
+     data-emptytext="Image" />
+</a>
+<sly data-sly-test="${properties.description}">
+  <br><small>${properties.description}</small>
+</sly>

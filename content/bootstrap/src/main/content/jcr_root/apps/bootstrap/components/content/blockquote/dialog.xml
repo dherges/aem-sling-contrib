@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Blockquote"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <settings
+            jcr:primaryType="cq:Widget"
+            title="Settings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <citation
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Citation"
+                    name="./citation"
+                    xtype="textfield"/>
+                <footer
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Footer"
+                    name="./footer"
+                    xtype="textfield"/>
+                <source
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Source"
+                    name="./source"
+                    xtype="textfield"/>
+                <reverse
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Reverse Blockquote?"
+                    name="./isReverse"
+                    type="checkbox"
+                    xtype="selection"/>
+          </items>
+        </settings>
+    </items>
+</jcr:root>

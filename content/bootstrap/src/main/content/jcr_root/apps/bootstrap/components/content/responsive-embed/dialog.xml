@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Responsive Embed"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <settings
+            jcr:primaryType="cq:Widget"
+            title="Settings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <src
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Src"
+                    name="./src"
+                    xtype="textfield"/>
+                <type
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldDescription="An alternative to explicitly defining an height is to use a responsive aspect ratio. If responsive aspect ratio is used, the iframe dimensions are based on the width of its containing block by creating an intrinsic ratio that will properly scale on any device."
+                    fieldLabel="Responsive Aspect Ratio"
+                    name="./cssClassResponsive"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            text="None"
+                            value=""/>
+                        <aspect_4_3
+                            jcr:primaryType="nt:unstructured"
+                            text="4:3 Aspect Ratio"
+                            value="embed-responsive-4by3"/>
+                        <aspect_16_9
+                            jcr:primaryType="nt:unstructured"
+                            text="16:9 Aspect Ratio"
+                            value="embed-responsive-16by9"/>
+                    </options>
+                </type>
+            </items>
+        </settings>
+    </items>
+</jcr:root>

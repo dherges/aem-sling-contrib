@@ -1,0 +1,9 @@
+<address itemscope itemtype="http://schema.org/PostalAddress">
+  <strong>${properties.name}</strong><br>
+  <span itemprop="streetAddress">${properties.street}</span><br>
+  <span itemprop="addressLocality">${properties.city}</span>,
+  <span itemprop="addressRegion">${properties.region}</span>
+  <span itemprop="postalCode">${properties.postalCode}</span><br>
+  <abbr title="Phone">P:</abbr> <span itemprop="telephone">${properties.phone}</span><br>
+  <a href="mailto:${properties.email}" itemprop="email">${properties.email}</a>
+</address>

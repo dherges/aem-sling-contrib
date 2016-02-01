@@ -1,0 +1,15 @@
+<sly data-sly-test="${properties.htmlTagName == 'button'}" data-sly-unwrap>
+  <a class="btn ${properties.cssButtonType}
+            ${properties.cssButtonSize}
+            ${properties.isBlockLevel ? 'btn-block' : ''}
+            ${properties.isDisabled ? 'disabled' : ''}"
+     href="${properties.href}"
+     role="button">${properties.text || 'Button...'}</a>
+</sly>
+
+
+<sly data-sly-test="${properties.htmlTagName != 'button'}" data-sly-unwrap>
+  <button
+    class="btn ${properties.cssButtonType} ${properties.cssButtonSize} ${properties.isBlockLevel ? 'btn-block' : ''}"
+    data-sly-attribute.disabled="${properties.isDisabled ? 'disabled' : ''}">${properties.text || 'Button...'}</button>
+</sly>

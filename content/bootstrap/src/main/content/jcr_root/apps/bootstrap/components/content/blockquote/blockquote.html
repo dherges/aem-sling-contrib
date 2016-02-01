@@ -1,0 +1,6 @@
+<blockquote class="${properties.isReverse ? 'blockquote-reverse' : ''}">
+  <p>${properties.citation || '...'}</p>
+  <footer data-sly-test="${properties.footer || properties.source}">${properties.footer}
+    <cite title="${properties.source}" data-sly-test="${properties.source}">${properties.source}</cite>
+  </footer>
+</blockquote>

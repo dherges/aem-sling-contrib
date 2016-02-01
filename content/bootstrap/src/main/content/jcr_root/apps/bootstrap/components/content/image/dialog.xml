@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Image"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        
+        <image
+            jcr:primaryType="cq:Widget"
+            cropParameter="./imageCrop"
+            ddGroups="[media]"
+            fileNameParameter="./fileName"
+            fileReferenceParameter="./fileReference"
+            mapParameter="./imageMap"
+            name="./file"
+            requestSuffix=".img.png"
+            rotateParameter="./imageRotate"
+            title="Image"
+            xtype="html5smartimage"/>
+
+      <advanced
+            jcr:primaryType="cq:Widget"
+            title="Advanced"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <title
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Title"
+                    name="./jcr:title"
+                    xtype="textfield"/>
+                <altText
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="(leave empty to use the title defined above)"
+                    fieldLabel="Alt Text"
+                    name="./altText"
+                    xtype="textfield"/>
+                <description
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Description"
+                    name="./description"
+                    xtype="textarea"/>
+
+                </items>
+      </advanced>
+
+      <display
+            jcr:primaryType="cq:Widget"
+            title="Display"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                  <cssShape
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Image Shape"
+                    name="./cssShape"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            text="Default"
+                            value=""/>
+                        <large
+                            jcr:primaryType="nt:unstructured"
+                            text="img-rounded"
+                            value="img-rounded"/>
+                        <small
+                            jcr:primaryType="nt:unstructured"
+                            text="img-circle"
+                            value="img-circle"/>
+                        <extrasmall
+                            jcr:primaryType="nt:unstructured"
+                            text="img-thumbnail"
+                            value="img-thumbnail"/>
+                  </options>
+                </cssSize>
+          </items>
+      </display>
+
+    </items>
+</jcr:root>

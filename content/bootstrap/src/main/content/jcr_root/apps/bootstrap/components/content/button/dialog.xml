@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Button"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <settings
+            jcr:primaryType="cq:Widget"
+            title="Settings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <text
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Text"
+                    name="./text"
+                    xtype="textfield"/>
+                <href
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Link Target"
+                    fieldDescription="Link is only shown when HTML tag name is &lt;a&gt;"
+                    name="./href"
+                    xtype="pathfield"/>
+            </items>
+        </settings>
+        <display
+            jcr:primaryType="cq:Widget"
+            title="Display"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <htmlTagName
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="a"
+                    fieldLabel="HTML Tag Name"
+                    name="./htmlTagName"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <a
+                            jcr:primaryType="nt:unstructured"
+                            text="a"
+                            value="a"/>
+                        <button
+                            jcr:primaryType="nt:unstructured"
+                            text="button"
+                            value="button"/>
+                    </options>
+                </htmlTagName>
+                <cssButtonType
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="btn-default"
+                    fieldLabel="Button Type"
+                    name="./cssButtonType"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-default"
+                            value="btn-default"/>
+                        <primary
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-primary"
+                            value="btn-primary"/>
+                        <success
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-success"
+                            value="btn-success"/>
+                        <info
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-info"
+                            value="btn-info"/>
+                        <warning
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-warning"
+                            value="btn-warning"/>
+                        <danger
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-danger"
+                            value="btn-danger"/>
+                        <link
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-link"
+                            value="btn-link"/>
+                  </options>
+                </cssButtonType>
+                <cssSize
+                    jcr:primaryType="cq:Widget"
+                    defaultValue=""
+                    fieldLabel="Button Size"
+                    name="./cssButtonSize"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            text="Default"
+                            value=""/>
+                        <large
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-lg"
+                            value="btn-lg"/>
+                        <small
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-sm"
+                            value="btn-sm"/>
+                        <extrasmall
+                            jcr:primaryType="nt:unstructured"
+                            text="btn-xs"
+                            value="btn-xs"/>
+                  </options>
+                </cssSize>
+                <blockLevel
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Block Level?"
+                    name="./isBlockLevel"
+                    type="checkbox"
+                    xtype="selection"/>
+                <disabled
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Disabled?"
+                    name="./isDisabled"
+                    type="checkbox"
+                    xtype="selection"/>
+          </items>
+      </display>
+    </items>
+</jcr:root>

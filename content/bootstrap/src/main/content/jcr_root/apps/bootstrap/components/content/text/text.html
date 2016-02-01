@@ -1,0 +1,10 @@
+<sly data-sly-use.text="text.js" data-sly-unwrap />
+
+<sly data-sly-test="${!text.text && wcmmode.edit}" data-sly-unwrap >
+  <img data-sly-test="${text.isTouch}"  src="/etc/designs/default/0.gif" data-emptytext="Text" class="cq-placeholder file cq-dd-image pro-text-placeholder"/>
+  <img data-sly-test="${!text.isTouch}" src="/etc/designs/default/0.gif" class="cq-text-placeholder cq-dd-image pro-text-placeholder"/>
+</sly>
+
+<sly data-sly-test="${text.text}"
+     data-sly-resource="${'.' @ resourceType='wcm/foundation/components/text', wcmmode='disabled'}"
+     data-sly-unwrap />

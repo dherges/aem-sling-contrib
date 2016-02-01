@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:rep="internal"
+          jcr:primaryType="nt:unstructured"
+          pattern="/content/bootstrap.*">
+
+    <!-- Default RTE -->
+    <default
+        jcr:primaryType="nt:unstructured"
+        includeDefault="true">
+        <edit
+            jcr:primaryType="nt:unstructured"
+            features="[cut,copy,paste-plaintext]"/>
+        <format
+            jcr:primaryType="nt:unstructured"
+            features="[bold,italic,underline]"/>
+        <image
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <justify
+            jcr:primaryType="nt:unstructured"
+            features="[justifyleft,justifycenter,justifyright]"/>
+        <links
+            jcr:primaryType="nt:unstructured"
+            features="[modifylink,unlink,anchor]"/>
+        <lists
+            jcr:primaryType="nt:unstructured"
+            features="[ordered,unordered]"/>
+        <paraformat
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <formats jcr:primaryType="cq:WidgetCollection">
+                <p
+                    jcr:primaryType="nt:unstructured"
+                    description="Paragraph"
+                    tag="p"/>
+                <h1
+                    jcr:primaryType="nt:unstructured"
+                    description="Heading 1"
+                    tag="h1"/>
+                <h2
+                    jcr:primaryType="nt:unstructured"
+                    description="Heading 2"
+                    tag="h2"/>
+                <h3
+                    jcr:primaryType="nt:unstructured"
+                    description="Heading 3"
+                    tag="h3"/>
+                <h4
+                    jcr:primaryType="nt:unstructured"
+                    description="Heading 4"
+                    tag="h4"/>
+                <h5
+                    jcr:primaryType="nt:unstructured"
+                    description="Heading 5"
+                    tag="h5"/>
+                <h6
+                    jcr:primaryType="nt:unstructured"
+                    description="Heading 6"
+                    tag="h6"/>
+            </formats>
+        </paraformat>
+        <styles
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <styles
+                jcr:primaryType="cq:WidgetCollection">
+                <paragraph_lead
+                    jcr:primaryType="nt:unstructured"
+                    cssName="lead"
+                    text="Lead Paragraph"/>
+                <text_primary
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-primary"
+                    text="Text Primary"/>
+                <text_muted
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-muted"
+                    text="Text Muted"/>
+                <text_success
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-success"
+                    text="Text Success"/>
+                <text_info
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-info"
+                    text="Text Info"/>
+                <text_warning
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-warning"
+                    text="Text Warning"/>
+                <text_danger
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-danger"
+                    text="Text Danger"/>
+                <text_lowercased
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-lowercase"
+                    text="Lowercased Text"/>
+                <text_uppercased
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-uppercase"
+                    text="Uppercased Text"/>
+                <text_capitalize
+                    jcr:primaryType="nt:unstructured"
+                    cssName="text-capitalize"
+                    text="Capitalized Text"/>
+            </styles>
+        </styles>
+        <subsuperscript
+            jcr:primaryType="nt:unstructured"
+            features="[subscript,superscript]"/>
+        <table
+            jcr:primaryType="nt:unstructured"
+            features="-"/>
+        <undo
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+    </default>
+
+</jcr:root>

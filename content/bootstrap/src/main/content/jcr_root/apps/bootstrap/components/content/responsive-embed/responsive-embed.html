@@ -1,0 +1,6 @@
+<div data-sly-test.hasSrc="${properties.src && properties.src.length > 0}"
+     class="embed-responsive ${properties.cssClassResponsive}">
+  <iframe src="${properties.src}" class="embed-responsive-item"></iframe>
+</div>
+
+<img data-sly-test="${wcmmode.edit && !hasSrc}" src="/libs/cq/ui/resources/0.gif" class="cq-list-placeholder" alt=""/>

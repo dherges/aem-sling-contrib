@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Address"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <settings
+            jcr:primaryType="cq:Widget"
+            title="Settings"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <name
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Name"
+                    name="./name"
+                    xtype="textfield"/>
+                <street
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Street"
+                    name="./street"
+                    xtype="textfield"/>
+                <city
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="City"
+                    name="./city"
+                    xtype="textfield"/>
+                <region
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Region"
+                    name="./region"
+                    xtype="textfield"/>
+                <postalCode
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Postal Code"
+                    name="./postalCode"
+                    xtype="textfield"/>
+                <phone
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Phone"
+                    name="./phone"
+                    xtype="textfield"/>
+                <email
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="E-Mail"
+                    name="./email"
+                    xtype="textfield"/>
+
+            </items>
+        </settings>
+    </items>
+</jcr:root>
