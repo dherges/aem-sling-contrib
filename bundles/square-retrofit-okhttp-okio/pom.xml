@@ -20,7 +20,7 @@
     </parent>
 
 
-    <artifactId>square-retrofit-okhttp</artifactId>
+    <artifactId>square-retrofit-okhttp-okio</artifactId>
     <packaging>bundle</packaging>
     <name>Square: Retrofit OkHttp Okio</name>
     <description>Square's Retrofit, OkHttp and Okio for OSGi.</description>
