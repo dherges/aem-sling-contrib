@@ -23,7 +23,7 @@
     <artifactId>weltraumschaf-speakingurl</artifactId>
     <packaging>bundle</packaging>
     <name>Speaking URL</name>
-    <description>Java port of https://github.com/pid/speakingurl</description>
+    <description>OSGI-ready version of http://blog.weltraumschaf.de/speakingurl/</description>
 
 
     <properties>
