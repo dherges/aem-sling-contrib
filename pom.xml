@@ -485,6 +485,7 @@
 
     <modules>
         <!-- TODO: why not working anymore??? module>bundles/sling-elasticsearch-resources</module-->
+        <module>bundles/sling-handelbarsjs</module>
         <module>content/bootstrap</module>
     </modules>
 </project>
