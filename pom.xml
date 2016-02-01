@@ -93,7 +93,7 @@
                 <plugin>
                     <groupId>org.apache.sling</groupId>
                     <artifactId>maven-sling-plugin</artifactId>
-                    <version>2.1.0</version>
+                    <version>2.1.6</version>
                 </plugin>
                 <plugin>
                     <groupId>com.day.jcr.vault</groupId>
@@ -168,11 +168,6 @@
                         </excludePackageNames>
                         <additionalparam>-Xdoclint:none</additionalparam>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>jslint-maven-plugin</artifactId>
-                    <version>1.0.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -485,6 +480,7 @@
 
     <modules>
         <!-- TODO: why not working anymore??? module>bundles/sling-elasticsearch-resources</module-->
+        <module>bundles/sling-commons-email</module>
         <module>bundles/sling-handelbarsjs</module>
         <module>content/bootstrap</module>
     </modules>
