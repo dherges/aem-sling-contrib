@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-
 /**
  * A DataSource implementation that allows creating MIME message content from a Sling resource
  */

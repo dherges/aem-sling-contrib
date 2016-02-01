@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ aem-sling-contrib
+  ~ https://github.com/dherges/aem-sling-contrib
+  ~
+  ~ Copyright (c) 2016 David Herges
+  ~ Licensed under the MIT license.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.spektrakel.sling</groupId>
+        <artifactId>aem-sling-contrib</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+
+    <artifactId>square-retrofit-okhttp</artifactId>
+    <packaging>bundle</packaging>
+    <name>Square: Retrofit OkHttp Okio</name>
+    <description>Square's Retrofit, OkHttp and Okio for OSGi.</description>
+
+
+    <properties>
+        <retrofit.version>2.0.0-beta3</retrofit.version>
+        <okhttp.version>3.0.1</okhttp.version>
+        <okio.version>1.6.0</okio.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>retrofit</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp-urlconnection</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>logging-interceptor</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <version>${okio.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.4</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            !retrofit.android,
+                            !retrofit.appengine,
+                            retrofit.*;version=${retrofit.version},
+                            com.squareup.okhttp,
+                            com.squareup.retrofit
+                        </Export-Package>
+                        <Import-Package>
+                            !android.*,
+                            !com.google.appengine.*,
+                            !org.apache.http*,
+                            rx*;resolution:=optional,
+                            *
+                        </Import-Package>
+                        <Embed-Dependency>*;scope=compile;inline=true</Embed-Dependency>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>maven-sling-plugin</artifactId>
+                <configuration>
+                    <slingUrl>http://${crx.host}:${crx.port}/apps/system/install</slingUrl>
+                    <usePut>true</usePut>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -482,6 +482,7 @@
         <!-- TODO: why not working anymore??? module>bundles/sling-elasticsearch-resources</module-->
         <module>bundles/sling-commons-email</module>
         <module>bundles/sling-handelbarsjs</module>
+        <module>bundles/square-retrofit-okhttp</module>
         <module>content/bootstrap</module>
     </modules>
 </project>
