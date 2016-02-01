@@ -484,7 +484,7 @@
     </pluginRepositories>
 
     <modules>
-        <module>bundles/sling-elasticsearch-resources</module>
+        <!-- TODO: why not working anymore??? module>bundles/sling-elasticsearch-resources</module-->
         <module>content/bootstrap</module>
     </modules>
 </project>
