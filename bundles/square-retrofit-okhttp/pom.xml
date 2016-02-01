@@ -65,7 +65,6 @@
             <version>1.6.4</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
 
@@ -80,9 +79,9 @@
                         <Export-Package>
                             !retrofit.android,
                             !retrofit.appengine,
-                            retrofit.*;version=${retrofit.version},
-                            com.squareup.okhttp,
-                            com.squareup.retrofit
+                            okio;version=${okio.version},
+                            okhttp3;version=${okhttp.version},
+                            retrofit2;version=${retrofit.version}
                         </Export-Package>
                         <Import-Package>
                             !android.*,
