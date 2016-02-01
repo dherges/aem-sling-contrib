@@ -1,8 +1,9 @@
-/*!
- * Bootstrap Grunt task for the CommonJS module generation
- * http://getbootstrap.com
- * Copyright 2014-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+/*
+ * aem-sling-contrib
+ * https://github.com/dherges/aem-sling-contrib
+ *
+ * Copyright (c) 2016 David Herges
+ * Licensed under the MIT license.
  */
 
 'use strict';

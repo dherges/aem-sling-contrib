@@ -1,10 +1,10 @@
-/* ========================================================================
- * Bootstrap: modal.js v3.3.5
- * http://getbootstrap.com/javascript/#modals
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+/*
+ * aem-sling-contrib
+ * https://github.com/dherges/aem-sling-contrib
+ *
+ * Copyright (c) 2016 David Herges
+ * Licensed under the MIT license.
+ */
 
 
 +function ($) {

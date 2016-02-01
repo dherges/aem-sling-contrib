@@ -1,15 +1,9 @@
-/*!
- * jQuery JavaScript Library v2.1.4
- * http://jquery.com/
+/*
+ * aem-sling-contrib
+ * https://github.com/dherges/aem-sling-contrib
  *
- * Includes Sizzle.js
- * http://sizzlejs.com/
- *
- * Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
- * Released under the MIT license
- * http://jquery.org/license
- *
- * Date: 2015-04-28T16:01Z
+ * Copyright (c) 2016 David Herges
+ * Licensed under the MIT license.
  */
 
 (function( global, factory ) {

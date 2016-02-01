@@ -1,7 +1,9 @@
-/*!
- * Bootstrap v3.3.5 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under the MIT license
+/*
+ * aem-sling-contrib
+ * https://github.com/dherges/aem-sling-contrib
+ *
+ * Copyright (c) 2016 David Herges
+ * Licensed under the MIT license.
  */
 
 if (typeof jQuery === 'undefined') {

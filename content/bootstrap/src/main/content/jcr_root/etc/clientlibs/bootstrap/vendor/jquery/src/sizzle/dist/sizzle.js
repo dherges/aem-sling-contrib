@@ -1,12 +1,9 @@
-/*!
- * Sizzle CSS Selector Engine v2.2.0-pre
- * http://sizzlejs.com/
+/*
+ * aem-sling-contrib
+ * https://github.com/dherges/aem-sling-contrib
  *
- * Copyright 2008, 2014 jQuery Foundation, Inc. and other contributors
- * Released under the MIT license
- * http://jquery.org/license
- *
- * Date: 2014-12-16
+ * Copyright (c) 2016 David Herges
+ * Licensed under the MIT license.
  */
 (function( window ) {
 
