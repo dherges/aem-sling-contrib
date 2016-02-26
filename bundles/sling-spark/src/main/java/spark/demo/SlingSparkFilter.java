@@ -8,19 +8,16 @@
 
 package spark.demo;
 
-import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.ComponentContext;
 
 import org.apache.felix.scr.annotations.*;
-import spark.servlet.SparkApplication;
 import spark.servlet.SparkFilter;
 
 import javax.servlet.*;
 import java.io.IOException;
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.Map;
 
 
 @Component(

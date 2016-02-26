@@ -480,11 +480,16 @@
 
     <modules>
         <!-- TODO: why not working anymore??? module>bundles/sling-elasticsearch-resources</module-->
+
+        <module>bundles/shark</module>
         <module>bundles/sling-commons-email</module>
         <module>bundles/sling-handlebarsjs</module>
         <module>bundles/sling-spark</module>
         <module>bundles/square-retrofit-okhttp-okio</module>
         <module>bundles/weltraumschaf-speakingurl</module>
+
         <module>content/bootstrap</module>
     </modules>
+
+
 </project>
