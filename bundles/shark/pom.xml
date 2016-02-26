@@ -27,7 +27,7 @@
 
 
     <properties>
-        <apache.sling.api.version>2.9.0</apache.sling.api.version>
+        <apache.sling.api.version>2.7.0</apache.sling.api.version>
         <apache.sling.commons.osgi.version>2.2.0</apache.sling.commons.osgi.version>
         <apache.sling.models.version>1.1.0</apache.sling.models.version>
         <osgi.version>4.2.0</osgi.version>

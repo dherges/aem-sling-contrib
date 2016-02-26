@@ -25,23 +25,26 @@ public class Magician {
     public Object postThisThingAround(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         // POST /my/magician/:id: is handled here ...
 
+        /* TODO
         return new Response.Builder()
                 .status(201)
-                .build();
+                .build(); */
+
+        return "POSTed";
     }
 
     @Route(uri = ":id:", method = "GET")
     public Object getThatThing(long id, SlingHttpServletRequest request, SlingHttpServletResponse response) {
         // GET /my/magician/:id:
 
-        return someAlmightyService.findById(id);
+        return "GOT"; // someAlmightyService.findById(id);
     }
 
     @Route(method = "GET")
     public Object getAListOfThings(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         // GET /my/magician
 
-        return someAlmightyService.findAllTheThings();
+        return "GOT list"; // someAlmightyService.findAllTheThings();
     }
 
 }

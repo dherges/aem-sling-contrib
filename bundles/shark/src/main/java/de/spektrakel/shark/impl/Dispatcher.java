@@ -15,6 +15,7 @@ import java.lang.reflect.Method;
 
 public class Dispatcher {
 
+/****
     public void bootstrap() {
 
         allResourceClasses = collect(classes with @Resource annotation)
@@ -59,5 +60,6 @@ public class Dispatcher {
         // serialize the output to a HTTP response
         writeResultToResponse(result, response);
     }
+****/
 
 }

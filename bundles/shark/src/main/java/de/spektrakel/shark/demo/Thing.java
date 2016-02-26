@@ -19,13 +19,13 @@ public class Thing {
     @Route(method = "GET")
     public Object dor(SlingHttpServletRequest request, SlingHttpServletResponse response) {
 
-        return null;
+        return "Hello GET!";
     }
 
     @Route(method = "POST")
     public Object die(SlingHttpServletRequest request, SlingHttpServletResponse response) {
 
-        return null;
+        return "Bye bye, POST!";
     }
 
 }
