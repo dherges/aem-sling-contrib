@@ -79,9 +79,9 @@
                         <Export-Package>
                             !retrofit.android,
                             !retrofit.appengine,
-                            okio;version=${okio.version},
-                            okhttp3;version=${okhttp.version},
-                            retrofit2;version=${retrofit.version}
+                            okio.*;version=${okio.version},
+                            okhttp3.*;version=${okhttp.version},
+                            retrofit2.*;version=${retrofit.version}
                         </Export-Package>
                         <Import-Package>
                             !android.*,
