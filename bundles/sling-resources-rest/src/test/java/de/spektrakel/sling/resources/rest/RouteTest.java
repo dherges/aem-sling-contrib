@@ -120,7 +120,11 @@ public class RouteTest {
         assertThat(new Route("/my/:path").matches("/my/path").param(":path"))
                 .isEqualTo("path");
 
-        assertThat(new Route("/my/:path/:id").matches("/my/book/780").param(":id"))
+        final Route.Match match = new Route("/my/:path/:id").matches("/my/book/780");
+        assertThat(match.param(":path"))
+                .isEqualTo("book");
+
+        assertThat(match.param(":id"))
                 .isEqualTo("780");
     }
 
