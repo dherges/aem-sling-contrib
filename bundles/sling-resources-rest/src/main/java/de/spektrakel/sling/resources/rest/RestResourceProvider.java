@@ -8,12 +8,14 @@
 
 package de.spektrakel.sling.resources.rest;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.ResponseBody;
 import org.apache.felix.scr.annotations.*;
 import org.apache.sling.api.resource.*;
+import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.apache.sling.commons.osgi.PropertiesUtil;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -46,6 +48,8 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
     protected String backendBaseUrl;
     protected String urlPattern;
 
+    private Router router;
+
     @Activate
     protected void activate(Map<String, Object> props) {
         rootPath = PropertiesUtil.toString(
@@ -57,6 +61,11 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
         urlPattern = PropertiesUtil.toString(
                 props.get(RestResourceProvider.URL_PATTERN),
                 RestResourceProvider.URL_PATTERN_DEFAULT);
+
+        router = new Router.Builder()
+                .basePath(rootPath)
+                .addRoute(new Route(urlPattern))
+                .build();
     }
 
 
@@ -92,6 +101,34 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
 
     @Override
     public Resource getResource(ResourceResolver resourceResolver, String path) {
+
+        final Route.Match match = router.findMatch(path);
+
+        final String id = match.param(":id");
+
+        final RemoteService remoteService = new Retrofit.Builder()
+                .baseUrl(backendBaseUrl)
+                .build()
+                .create(RemoteService.class);
+
+        String resultObj = null;
+        ResponseBody objectFromRemote = null;
+        try {
+            Call<ResponseBody> call = remoteService.read(id);
+
+            Response<ResponseBody> response = call.execute();
+
+            objectFromRemote = response.body();
+
+            resultObj = objectFromRemote.string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new GenericObjectResource<>(resourceResolver, path, "sling:remoteRestResource",
+                new ValueMapDecorator(new HashMap<>()), resultObj);
+
+        /*
         String relativePath = path.substring("/sling/resources/rest".length());
 
         Request request = new Request.Builder()
@@ -114,7 +151,7 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
             e.printStackTrace();
         }
 
-        return null;
+        return null;*/
     }
 
     @Override

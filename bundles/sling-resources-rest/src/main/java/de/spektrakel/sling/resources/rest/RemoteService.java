@@ -8,12 +8,15 @@
 
 package de.spektrakel.sling.resources.rest;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+
 public interface RemoteService {
 
-    @GET("/my/remote/source/:name")
-    Object getFromRemoteById(@Path(value = "name") String name);
+    @GET("/var/{name}.json")
+    Call<ResponseBody> read(@Path(value = "name") String name);
 
 }
