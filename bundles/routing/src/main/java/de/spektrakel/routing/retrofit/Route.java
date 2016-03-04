@@ -6,15 +6,20 @@
  * Licensed under the MIT license.
  */
 
-package de.spektrakel.routing.sinatra;
+package de.spektrakel.routing.retrofit;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.function.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collector;
 import java.util.stream.IntStream;
 
 public class Route {
+    // Upper and lower characters, digits, underscores, and hyphens, starting with a character.
+    private static final String PARAM = "[a-zA-Z][a-zA-Z0-9_-]*";
+    private static final Pattern PARAM_NAME_REGEX = Pattern.compile(PARAM);
+    private static final Pattern PARAM_URL_REGEX = Pattern.compile("\\{(" + PARAM + ")\\}");
 
     private final String path;
     private final String[] pathSegments;
@@ -30,7 +35,7 @@ public class Route {
         this.path = path;
 
         pathSegments = splitSegments(path);
-        pathParams = findParams(pathSegments);
+        pathParams = findParams(path);
     }
 
     public String getPath() {
@@ -51,27 +56,10 @@ public class Route {
     }
 
     public Match matches(String inputPath) {
-        final String[] inputSegments = splitSegments(inputPath);
 
-        final Map<String, String> params = new HashMap<>();
-        final int decision = (inputSegments.length == pathSegments.length) ?
-                IntStream.range(0, inputSegments.length)
-                    .map((idx) -> {
-                        String is = inputSegments[idx];
-                        String ps = pathSegments[idx];
+        // TODO ... will fail tests for now :-)
 
-                        if (isParam(ps)) {
-                            params.put(ps, is);
-
-                            return 0; // 0 = segment matches
-                        } else {
-                            return ps.equals(is) ? 0 : 1; // 0 = segment matches; 1 = no match;
-                        }
-                    })
-                    .sum()
-                : 2; // 2 = array lengths don't match
-
-        return new Match(inputPath, this, params, decision == 0);
+        return null;
     }
 
 
@@ -117,19 +105,20 @@ public class Route {
                 .toArray(String[]::new);
     }
 
-    /** Finds path parts that start with a ":" */
-    private static String[] findParams(String[] parts) {
-        return Arrays.stream(parts)
-                .filter(Route::isParam)
-                .toArray(String[]::new);
+    /** Strips a trailing slash, ensures a starting slash */
+    private static String[] findParams(String path) {
+        final Matcher matcher = PARAM_URL_REGEX.matcher(path);
+
+        Set<String> patterns = new LinkedHashSet<>();
+        while (matcher.find()) {
+            patterns.add(matcher.group(1));
+        }
+
+        return patterns.stream().toArray(String[]::new);
     }
 
     private static boolean notEmpty(String part) {
         return part != null && part.length() > 0;
-    }
-
-    private static boolean isParam(String pathSegment) {
-        return pathSegment.startsWith(":");
     }
 
 }
