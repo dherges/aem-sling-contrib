@@ -481,6 +481,7 @@
     <modules>
         <!-- TODO: why not working anymore??? module>bundles/sling-elasticsearch-resources</module-->
 
+        <module>bundles/routing</module>
         <module>bundles/shark</module>
         <module>bundles/sling-commons-email</module>
         <module>bundles/sling-handlebarsjs</module>
