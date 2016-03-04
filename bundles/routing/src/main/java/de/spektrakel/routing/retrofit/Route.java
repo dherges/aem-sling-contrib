@@ -9,11 +9,8 @@
 package de.spektrakel.routing.retrofit;
 
 import java.util.*;
-import java.util.function.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collector;
-import java.util.stream.IntStream;
 
 public class Route {
     // Upper and lower characters, digits, underscores, and hyphens, starting with a character.
