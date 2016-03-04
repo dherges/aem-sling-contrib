@@ -8,6 +8,8 @@
 
 package de.spektrakel.sling.resources.rest;
 
+import de.spektrakel.routing.sinatra.Route;
+import de.spektrakel.routing.sinatra.Router;
 import okhttp3.ResponseBody;
 import org.apache.felix.scr.annotations.*;
 import org.apache.sling.api.resource.*;

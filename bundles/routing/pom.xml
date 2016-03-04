@@ -65,18 +65,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-scr-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>generate-scr-descriptor</id>
-                        <goals>
-                            <goal>scr</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
             </plugin>
             <plugin>
@@ -86,10 +74,6 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Sling-Model-Packages>de.spektrakel.sling.models.resources.demo</Sling-Model-Packages>
-                        <Embed-Dependency>*;scope=compile</Embed-Dependency>
-                        <Embed-Directory>OSGI-INF/lib</Embed-Directory>
-                        <Embed-Transitive>false</Embed-Transitive>
                     </instructions>
                 </configuration>
             </plugin>
