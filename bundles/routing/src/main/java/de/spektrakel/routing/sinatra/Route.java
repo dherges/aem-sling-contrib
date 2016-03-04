@@ -8,10 +8,7 @@
 
 package de.spektrakel.routing.sinatra;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Route {
@@ -105,10 +102,19 @@ public class Route {
             return params.keySet();
         }
 
-        public boolean decision() {
+        public boolean isMatch() {
             return decision;
         }
+
+        public boolean isNoMatch() {
+            return !decision;
+        }
+
+        protected static Match noMatch(String input) {
+            return new Match(input, null, Collections.emptyMap(), false);
+        }
     }
+
 
     /** Splits into path segments */
     private static String[] splitSegments(String path) {

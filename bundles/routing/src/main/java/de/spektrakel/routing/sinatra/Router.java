@@ -11,6 +11,7 @@ package de.spektrakel.routing.sinatra;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class Router {
 
@@ -35,12 +36,19 @@ public class Router {
                 inputPath.substring(basePath.length(), inputPath.length()) :
                 inputPath;
 
-        final Route matchingRoute = routeList.stream()
-                .filter((route) -> route.matches(relativePath).decision())
-                .findFirst()
-                .get();
+        final Optional<Route.Match> matchingRoute = routeList.stream()
+                .map((route) -> {
+                    Route.Match match = route.matches(relativePath);
+                    if (match.isMatch()) {
+                        return match;
+                    } else {
+                        return null;
+                    }
+                })
+                .filter((match) -> match != null)
+                .findFirst();
 
-        return matchingRoute.matches(relativePath); // TODO ... this is a bit ugly because we call matches() twice
+        return matchingRoute.isPresent() ? matchingRoute.get() : Route.Match.noMatch(inputPath);
     }
 
     public static class Builder {

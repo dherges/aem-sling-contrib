@@ -83,22 +83,22 @@ public class RouteTest {
 
     @Test
     public void matchesForPath() {
-        assertThat(new Route("/my/path").matches("/my/path").decision())
+        assertThat(new Route("/my/path").matches("/my/path").isMatch())
                 .isTrue();
 
-        assertThat(new Route("/my/path").matches("/my/other/thing").decision())
+        assertThat(new Route("/my/path").matches("/my/other/thing").isMatch())
                 .isFalse();
     }
 
     @Test
     public void matchesForParams() {
-        assertThat(new Route("/my/:path").matches("/my/path").decision())
+        assertThat(new Route("/my/:path").matches("/my/path").isMatch())
                 .isTrue();
 
-        assertThat(new Route("/my/:path").matches("/my/123").decision())
+        assertThat(new Route("/my/:path").matches("/my/123").isMatch())
                 .isTrue();
 
-        assertThat(new Route("/my/:path").matches("/my/other/thing").decision())
+        assertThat(new Route("/my/:path").matches("/my/other/thing").isMatch())
                 .isFalse();
     }
 
