@@ -15,6 +15,8 @@ import org.apache.felix.scr.annotations.*;
 import org.apache.sling.api.resource.*;
 import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -39,6 +41,7 @@ import java.util.Map;
                 value = RestResourceProvider.URL_PATTERN_DEFAULT)
 })
 public class RestResourceProvider implements ResourceProvider, ModifyingResourceProvider, QueriableResourceProvider {
+    private static final Logger LOG = LoggerFactory.getLogger(RestResourceProvider.class);
 
     public static final String ROOTS_DEFAULT = "/sling/resources/rest";
     public static final String BACKEND_BASE_URL = "restResourceProvider.backendBaseUrl";
@@ -51,6 +54,7 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
     protected String urlPattern;
 
     private Router router;
+    private RemoteService remoteService;
 
     @Activate
     protected void activate(Map<String, Object> props) {
@@ -68,17 +72,27 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
                 .basePath(rootPath)
                 .addRoute(new Route(urlPattern))
                 .build();
+
+        remoteService = new Retrofit.Builder()
+                .baseUrl(backendBaseUrl)
+                .build()
+                .create(RemoteService.class);
     }
 
 
     @Override
     public Resource create(ResourceResolver resolver, String path, Map<String, Object> properties) throws PersistenceException {
-        return null;
+        throw new PersistenceException("Not yet implemented");
     }
 
     @Override
     public void delete(ResourceResolver resolver, String path) throws PersistenceException {
+        throw new PersistenceException("Not yet implemented");
+    }
 
+    @Override
+    public boolean hasChanges(ResourceResolver resolver) {
+        return false;
     }
 
     @Override
@@ -92,11 +106,6 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
     }
 
     @Override
-    public boolean hasChanges(ResourceResolver resolver) {
-        return false;
-    }
-
-    @Override
     public Resource getResource(ResourceResolver resourceResolver, HttpServletRequest request, String path) {
         return getResource(resourceResolver, path);
     }
@@ -105,55 +114,31 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
     public Resource getResource(ResourceResolver resourceResolver, String path) {
 
         final Route.Match match = router.findMatch(path);
+        if (match.isNoMatch()) {
+            return null; // no match, no resource
+        }
 
         final String id = match.param(":id");
 
-        final RemoteService remoteService = new Retrofit.Builder()
-                .baseUrl(backendBaseUrl)
-                .build()
-                .create(RemoteService.class);
-
         String resultObj = null;
-        ResponseBody objectFromRemote = null;
         try {
-            Call<ResponseBody> call = remoteService.read(id);
+            // prepare API call
+            final Call<ResponseBody> call = remoteService.read(id);
 
-            Response<ResponseBody> response = call.execute();
+            // call the remote REST service
+            final Response<ResponseBody> response = call.execute();
 
-            objectFromRemote = response.body();
-
-            resultObj = objectFromRemote.string();
+            // obtain result object from response
+            final ResponseBody responseBody = response.body();
+            if (responseBody != null) {
+                resultObj = responseBody.string();
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("IOException during read", e);
         }
 
         return new GenericObjectResource<>(resourceResolver, path, "sling:remoteRestResource",
                 new ValueMapDecorator(new HashMap<>()), resultObj);
-
-        /*
-        String relativePath = path.substring("/sling/resources/rest".length());
-
-        Request request = new Request.Builder()
-                .url("http://192.168.0.214:4503" + relativePath + ".json")
-                .build();
-
-        OkHttpClient okHttpClient = new OkHttpClient();
-
-        try {
-            Response response = okHttpClient.newCall(request).execute();
-            String responseBody = response.body().string();
-
-            // TODO: responseBody to json ...
-
-            // TODO: json to JsonResource
-
-            int a = 8+2; // yeehaw ... got response from remote service
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;*/
     }
 
     @Override
@@ -170,40 +155,5 @@ public class RestResourceProvider implements ResourceProvider, ModifyingResource
     public Iterator<ValueMap> queryResources(ResourceResolver resolver, String query, String language) {
         return null;
     }
-
-
-    /** True, if */
-    protected boolean accepts(String path) {
-        return true;
-    }
-
-    /** '/sling/resources/rest/abc/xyz' -> '/abc/xyz */
-    protected String stripRootPath(String path) {
-        return path.startsWith(rootPath) ? path.substring(rootPath.length()) : rootPath;
-    }
-
-    /** '/abc' -> {id: 'abc'} */
-    protected Map<String, String> extractPathParams(String path) {
-        final Map<String, String> pathParams = new HashMap<>();
-
-        // TODO ... find named placeholder from urlPattern
-
-        // TODO ... matches path urlPattern?
-
-        // TODO ... find matches for named placeholders
-
-        pathParams.put("id", "abc");
-
-        return pathParams;
-    }
-
-    protected String buildPathParams(Map<String, String> pathParams) {
-
-        // TODO ... for each named placeholder from urlPattern
-        // TODO ... replace placeholder with value from pathParams
-
-        return "/" + pathParams.get("id");
-    }
-
 
 }

@@ -113,6 +113,11 @@ public class GenericObjectResource<T> extends AbstractResource implements Resour
             return (AdapterType) object;
         }
 
+        if (type.isAssignableFrom(ValueMap.class)) {
+            //noinspection unchecked
+            return (AdapterType) getValueMap();
+        }
+
         return super.adaptTo(type);
     }
 

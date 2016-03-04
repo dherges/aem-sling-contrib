@@ -30,6 +30,7 @@
         <apache.sling.api.version>2.7.0</apache.sling.api.version>
         <apache.sling.commons.osgi.version>2.2.0</apache.sling.commons.osgi.version>
         <apache.sling.models.version>1.1.0</apache.sling.models.version>
+        <org.slf4j.slf4j-api.version>1.7.6</org.slf4j.slf4j-api.version>
         <osgi.version>4.2.0</osgi.version>
         <junit.version>4.11</junit.version>
         <junit.addons.version>1.4</junit.addons.version>
@@ -85,6 +86,12 @@
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
             <version>${osgi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.slf4j-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
