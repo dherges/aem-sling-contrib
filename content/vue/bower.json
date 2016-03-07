@@ -1,0 +1,23 @@
+{
+  "name": "vue",
+  "homepage": "https://github.com/dherges/aem-sling-contrib",
+  "authors": [
+    "David Herges <david@spektrakel.de>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "^2.0.4",
+    "vue": "^1.0.17"
+  }
+}
