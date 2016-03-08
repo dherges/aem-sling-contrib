@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ aem-sling-contrib
   ~ https://github.com/dherges/aem-sling-contrib
@@ -9,12 +10,17 @@
 <node>
     <!-- @see https://sling.apache.org/documentation/bundles/content-loading-jcr-contentloader.html#xml-descriptor-files -->
 
-    <name>page</name>
+    <name>page_basic</name>
     <primaryNodeType>nt:unstructured</primaryNodeType>
 
     <property>
         <name>sling:resourceType</name>
         <value>vue/components/page/page_basic</value>
+        <type>String</type>
+    </property>
+    <property>
+        <name>sling:resourceSuperType</name>
+        <value>vue/component</value>
         <type>String</type>
     </property>
 
