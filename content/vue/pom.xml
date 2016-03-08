@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  ~ aem-sling-contrib
+  ~ https://github.com/dherges/aem-sling-contrib
+  ~
+  ~ Copyright (c) 2016 David Herges
+  ~ Licensed under the MIT license.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>de.spektrakel.sling</groupId>
+        <artifactId>aem-sling-contrib</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+
+    <artifactId>vue</artifactId>
+    <packaging>bundle</packaging>
+    <name>Vue.js for Apache Sling</name>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/content/jcr_root</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/.vlt</exclude>
+                    <exclude>**/.vltignore</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Sling-Initial-Content>
+                            apps/vue;path:=/apps/vue;overwrite:=true;uninstall:=true;ignoreImportProviders:="jar,zip,json",
+                            content/vue;path:=/content/vue;overwrite:=true;uninstall:=true;ignoreImportProviders:="jar,zip,json",
+                            etc/clientlibs/vue;path:=/etc/clientlibs/vue;overwrite:=true;uninstall:=true;ignoreImportProviders:="jar,zip,json"
+                        </Sling-Initial-Content>
+                    </instructions>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>maven-sling-plugin</artifactId>
+                <configuration>
+                    <slingUrl>http://${crx.host}:${crx.port}/apps/system/install</slingUrl>
+                    <usePut>true</usePut>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

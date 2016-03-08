@@ -32,7 +32,7 @@
 
 
     <prerequisites>
-        <maven>3.0.2</maven>
+        <maven>3.1.0</maven>
     </prerequisites>
 
 
@@ -491,6 +491,7 @@
         <module>bundles/weltraumschaf-speakingurl</module>
 
         <module>content/bootstrap</module>
+        <module>content/vue</module>
     </modules>
 
 
