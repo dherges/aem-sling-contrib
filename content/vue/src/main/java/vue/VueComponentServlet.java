@@ -12,6 +12,7 @@ import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceUtil;
+import org.apache.sling.api.servlets.OptingServlet;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
 import javax.servlet.ServletException;
@@ -23,7 +24,12 @@ import java.net.URL;
         methods = {"GET"},
         extensions = "html"
 )
-public class VueComponentServlet extends SlingSafeMethodsServlet {
+public class VueComponentServlet extends SlingSafeMethodsServlet implements OptingServlet {
+
+    @Override
+    public boolean accepts(SlingHttpServletRequest request) {
+        return false; // TODO ...
+    }
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
@@ -48,7 +54,7 @@ public class VueComponentServlet extends SlingSafeMethodsServlet {
         BufferedReader in = new BufferedReader(new InputStreamReader(fileContent.openStream()));
         String inputLine;
         while ((inputLine = in.readLine()) != null)
-            writer.append(inputLine);
+            writer.append(inputLine).append("\r\n");
         in.close();
     }
 

@@ -17,5 +17,10 @@
         <value>vue/components/page/page_basic</value>
         <type>String</type>
     </property>
+    <property>
+        <name>vue.editorialContent</name>
+        <value>Hello World!</value>
+        <type>String</type>
+    </property>
 
 </node>
