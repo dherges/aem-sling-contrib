@@ -10,7 +10,7 @@
 <node>
     <!-- @see https://sling.apache.org/documentation/bundles/content-loading-jcr-contentloader.html#xml-descriptor-files -->
 
-    <name>page_basic</name>
+    <name>page_components</name>
     <primaryNodeType>nt:unstructured</primaryNodeType>
 
     <property>
