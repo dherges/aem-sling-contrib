@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ aem-sling-contrib
+  ~ https://github.com/dherges/aem-sling-contrib
+  ~
+  ~ Copyright (c) 2016 David Herges
+  ~ Licensed under the MIT license.
+  -->
+
+<node>
+    <!-- @see https://sling.apache.org/documentation/bundles/content-loading-jcr-contentloader.html#xml-descriptor-files -->
+
+    <name>modules</name>
+    <primaryNodeType>nt:unstructured</primaryNodeType>
+
+    <property>
+        <name>sling:resourceType</name>
+        <value>vue/components/page/page_modules</value>
+        <type>String</type>
+    </property>
+    <property>
+        <name>vue.editorialContent</name>
+        <value>Hello World!</value>
+        <type>String</type>
+    </property>
+
+</node>
