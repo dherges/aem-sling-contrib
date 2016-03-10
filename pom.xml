@@ -198,7 +198,6 @@
         </pluginManagement>
     </build>
 
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -321,6 +320,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
+        </dependency>
+    </dependencies>
+
 
     <profiles>
         <profile>

@@ -1,11 +1,3 @@
-/*
- * aem-sling-contrib
- * https://github.com/dherges/aem-sling-contrib
- *
- * Copyright (c) 2016 David Herges
- * Licensed under the MIT license.
- */
-
 var webpack = require('webpack')
 var config = require('./webpack.base.conf')
 var cssLoaders = require('./css-loaders')
@@ -33,7 +25,7 @@ Object.keys(config.entry).forEach(function (name, i) {
 
 // necessary for the html plugin to work properly
 // when serving the html from in-memory
-config.output.publicPath = 'http://localhost:8080/assets/'
+config.output.publicPath = '/'
 
 config.plugins = (config.plugins || []).concat([
   // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
@@ -43,7 +35,7 @@ config.plugins = (config.plugins || []).concat([
   // https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: 'index.html',
+    template: './src/main/content/jcr_root/apps/vue/index.html',
     inject: true
   })
 ])

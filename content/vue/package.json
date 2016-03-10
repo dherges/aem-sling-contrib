@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "dev2": "node build/dev2-server.js",
-    "build": "rimraf dist && mkdirp dist && ncp static dist/static && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
+    "build": "rimraf src/main/content/jcr_root/etc/clientlibs/vue/_dist/ && mkdirp src/main/content/jcr_root/etc/clientlibs/vue/_dist/ && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "test": "karma start build/karma.conf.js --single-run"
   },
   "dependencies": {

@@ -7,9 +7,9 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
     frameworks: ['jasmine'],
     reporters: ['spec'],
-    files: ['../test/unit/index.js'],
+    files: ['../src/main/content/jcr_root/apps/vue/test/unit/index.js'],
     preprocessors: {
-      '../test/unit/index.js': ['webpack', 'sourcemap']
+      '../src/main/content/jcr_root/apps/vue/test/unit/index.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConf,
     webpackMiddleware: {

@@ -30,35 +30,121 @@
         <retrofit.version>2.0.0-beta3</retrofit.version>
         <okhttp.version>3.0.1</okhttp.version>
         <okio.version>1.6.0</okio.version>
+        <moshi.version>1.0.0</moshi.version>
+        <wire.version>2.0.0</wire.version>
+        <simplexml.version>2.7.1</simplexml.version>
     </properties>
 
 
     <dependencies>
+        <!-- Retrofit -->
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
             <version>${retrofit.version}</version>
         </dependency>
+
+        <!-- Moshi Converter + Library -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-moshi</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.moshi</groupId>
+            <artifactId>moshi</artifactId>
+            <version>${moshi.version}</version>
+        </dependency>
+
+        <!-- GSON Converter (w/o Library) -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-gson</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+
+        <!-- Jackson Converter (w/o Library) -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-jackson</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+
+        <!-- Protobuf Converter (w/o Library) -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-protobuf</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+
+        <!-- Scalars Converter (no library needed) -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-scalars</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+
+        <!-- SimpleXML Converter + Library -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-simplexml</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.simpleframework</groupId>
+            <artifactId>simple-xml</artifactId>
+            <version>${simplexml.version}</version>
+        </dependency>
+
+        <!-- Wire Converter + Library -->
+        <dependency>
+            <groupId>com.squareup.retrofit2</groupId>
+            <artifactId>converter-wire</artifactId>
+            <version>${retrofit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.wire</groupId>
+            <artifactId>wire-runtime</artifactId>
+            <version>${wire.version}</version>
+            <exclusions>
+                <!-- Make sure OkHttp's transitive version wins (itself transitive from Retrofit). -->
+                <exclusion>
+                    <groupId>com.squareup.okio</groupId>
+                    <artifactId>okio</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- OkHttp -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>${okhttp.version}</version>
         </dependency>
-        <dependency>
+        <!-- TODO ... why is this needed? dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp-urlconnection</artifactId>
             <version>${okhttp.version}</version>
-        </dependency>
+        </dependency -->
+        <!-- TODO ... needs more deps! dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>mockwebserver</artifactId>
+            <version>${okhttp.version}</version>
+        </dependency-->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>logging-interceptor</artifactId>
             <version>${okhttp.version}</version>
         </dependency>
+
+        <!-- Okio -->
         <dependency>
             <groupId>com.squareup.okio</groupId>
             <artifactId>okio</artifactId>
             <version>${okio.version}</version>
         </dependency>
+
+        <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -81,7 +167,10 @@
                             !retrofit.appengine,
                             okio.*;version=${okio.version},
                             okhttp3.*;version=${okhttp.version},
-                            retrofit2.*;version=${retrofit.version}
+                            retrofit2.*;version=${retrofit.version},
+                            com.squareup.moshi.*;version=${moshi.version},
+                            com.squareup.wire.*;version=${wire.version},
+                            org.simpleframework.xml.*;version=${simplexml.version}
                         </Export-Package>
                         <Import-Package>
                             !android.*,

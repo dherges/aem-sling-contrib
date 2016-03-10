@@ -37,6 +37,8 @@
                 <excludes>
                     <exclude>**/.vlt</exclude>
                     <exclude>**/.vltignore</exclude>
+                    <exclude>**/.bower.json</exclude>
+                    <exclude>**/.gitignore</exclude>
                 </excludes>
             </resource>
         </resources>

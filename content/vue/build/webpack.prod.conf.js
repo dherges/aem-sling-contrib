@@ -43,8 +43,8 @@ config.plugins = (config.plugins || []).concat([
   // you can customize output by editing /index.html
   // see https://github.com/ampedandwired/html-webpack-plugin
   new HtmlWebpackPlugin({
-    filename: '../index.html',
-    template: 'index.html',
+    filename: 'index.html',
+    template: './src/main/content/jcr_root/apps/vue/index.html',
     inject: true,
     minify: {
       removeComments: true,

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>¡Hello, los amigos di me!</h1>
+    <h1>¡Hola, todo el mundo grita mi nombre!</h1>
     <img class="logo" src="./assets/logo.png">
     <hello></hello>
     <p>
